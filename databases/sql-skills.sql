@@ -71,3 +71,26 @@ JOIN artist
 ON album.artist_id = artist.artist_id;
 
 --EXTRA CREDIT
+-- Select 10 artists in reverse alphabetical order.
+SELECT * FROM artist ORDER BY name DESC
+LIMIT 10;
+
+-- Select all artists that start with the word ‘Black’.
+SELECT * FROM artist 
+WHERE name LIKE 'Black%';
+
+-- Select all artists that contain the word ‘Black’.
+SELECT * FROM artist 
+WHERE name LIKE '%Black%';
+
+-- Find the birthdate for the youngest employee.
+SELECT * FROM employee
+ORDER BY birth_date DESC;
+
+-- Find the birthdate for the oldest employee.
+SELECT * FROM employee
+ORDER BY birth_date ASC;
+
+-- Count how many orders were in CA, TX, or AZ (use IN).
+
+-- Get the average total of the orders.
