@@ -50,22 +50,21 @@ JOIN invoice_line
 ON invoice_line.invoice_id = invoice.invoice_id
 WHERE unit_price >.99;
 
+
 -- Get the invoice_date, customer first_name and last_name, and total from all invoices.
-SELECT invoice_date, first_name, last_name, total, customer.customer_id, invoice.customer_id
+SELECT invoice_date, first_name, last_name, total
 FROM customer
 JOIN invoice
 ON customer.customer_id = invoice.customer_id;
 
 -- Get the customer first_name and last_name and the support rep’s first_name and last_name from all customers. Note that support reps are on the employee table.
 --Had serious trouble with this Q
-CREATE TABLE orders (
- first_name 
- last_name 
- PRIMARY KEY employee_id
- FOREIGN KEY support_rep_id REFERENCES customers);
+SELECT customer.first_name, customer.last_name, employee.first_name, employee.last_name
+FROM customer
+JOIN employee ON customer.support_rep_id = employee.employee_id;
 
 -- Get the album title and the artist name from all albums.
-SELECT title, name, album.artist_id, artist.artist_id
+SELECT album.title, artist.name, album.artist_id, artist.artist_id
 FROM album
 JOIN artist
 ON album.artist_id = artist.artist_id;
